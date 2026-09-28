@@ -27,8 +27,11 @@ Synthea FHIR/JSON Files
         ↓
      BigQuery
 
+```
 
 ### 2. Streaming Data Pipeline
+
+```text
 
 Synthea FHIR/JSON
         ↓
@@ -40,7 +43,7 @@ Synthea FHIR/JSON
    (Apache Beam)
         ↓
      BigQuery
-
+```
 
 
 ### 3.Technologies Used
