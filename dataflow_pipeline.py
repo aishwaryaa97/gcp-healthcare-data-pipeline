@@ -5,18 +5,17 @@ import apache_beam as beam
 from apache_beam.io import ReadFromPubSub, WriteToBigQuery
 from apache_beam.options.pipeline_options import PipelineOptions
 
-
-PROJECT_ID = "project-c18eeebc-1b19-4616-80b"
+# Replace placeholders with your own GCP configuration before running.
+PROJECT_ID = "YOUR_GCP_PROJECT_ID"
 
 SUBSCRIPTION = (
-    "projects/project-c18eeebc-1b19-4616-80b/"
-    "subscriptions/clinical-data-events-sub"
+    "projects/YOUR_GCP_PROJECT_ID/"
+    "subscriptions/YOUR_PUBSUB_SUBSCRIPTION"
 )
 
 BIGQUERY_TABLE = (
-    "project-c18eeebc-1b19-4616-80b:clinical_data.raw_fhir_events"
+    "YOUR_GCP_PROJECT_ID:YOUR_BIGQUERY_DATASET.YOUR_BIGQUERY_TABLE"
 )
-
 
 BQ_SCHEMA = {
     "fields": [
@@ -45,10 +44,8 @@ def parse_fhir_message(message):
         patient_id = resource_id
     else:
         patient_id = None
-
         subject = resource.get("subject", {})
         patient = resource.get("patient", {})
-
         reference = subject.get("reference") or patient.get("reference")
 
         if reference and "/" in reference:
