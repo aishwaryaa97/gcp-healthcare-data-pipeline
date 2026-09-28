@@ -75,6 +75,7 @@ Synthea FHIR/JSON
 
 ### 5.Project Structure
 
+```text
 gcp-healthcare-data-pipeline/
 │
 ├── README.md
@@ -82,6 +83,8 @@ gcp-healthcare-data-pipeline/
 ├── producer.py
 ├── dataflow_pipeline.py
 └── batch_dataflow_pipeline.py
+
+```
 
 ### 6. Purpose
 
