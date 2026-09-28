@@ -6,87 +6,79 @@ A hands-on Google Cloud data engineering project using the Synthea synthetic hea
 
 This project demonstrates a cloud-based healthcare data pipeline using Google Cloud Platform (GCP).
 
-The dataset contains synthetic healthcare records represented as FHIR/JSON resources, including resources such as:
+The dataset contains synthetic healthcare records represented as FHIR/JSON resources, including:
 
 - Patient
 - Encounter
 
 The project explores both batch data ingestion and streaming data processing workflows.
 
-## Architecture
+## Pipeline Architecture
 
-### Batch Ingestion
+### 1. Batch Data Pipeline
+
+```text
+Synthea FHIR/JSON Files
+        ↓
+   Cloud Storage
+        ↓
+      Dataflow
+   (Apache Beam)
+        ↓
+     BigQuery
+
+
+### 2. Streaming Data Pipeline
 
 Synthea FHIR/JSON
-→ Cloud Storage
-→ BigQuery
+        ↓
+   Python Producer
+        ↓
+      Pub/Sub
+        ↓
+      Dataflow
+   (Apache Beam)
+        ↓
+     BigQuery
 
-### Streaming Workflow
 
-Synthea FHIR/JSON
-→ Python Producer
-→ Pub/Sub
-→ Dataflow / Apache Beam
 
-## Technologies
+### 3.Technologies Used
+Google Cloud Platform (GCP)
+Cloud Storage
+BigQuery
+Pub/Sub
+Dataflow
+Apache Beam
+Python
+SQL
+FHIR / JSON
+Synthea synthetic healthcare dataset
 
-- Google Cloud Platform (GCP)
-- Cloud Storage
-- BigQuery
-- Pub/Sub
-- Dataflow
-- Apache Beam
-- Python
-- SQL
-- FHIR / JSON
-- Synthea
 
-## Project Components
 
-### 1. Synthea Dataset
+### 4.Key Data Engineering Concepts
+Batch data ingestion
+Streaming data processing
+Event-driven data ingestion using Pub/Sub
+FHIR/JSON parsing
+Data transformation using Apache Beam
+Cloud Storage integration
+BigQuery data loading
+Pipeline development using Python
 
-Synthetic healthcare data generated in FHIR/JSON format.
 
-### 2. Cloud Storage
+### 5.Project Structure
 
-Used as the cloud storage/staging layer for the healthcare JSON files.
+gcp-healthcare-data-pipeline/
+│
+├── README.md
+├── requirements.txt
+├── producer.py
+├── dataflow_pipeline.py
+└── batch_dataflow_pipeline.py
 
-### 3. BigQuery
+### 6. Purpose
 
-Used to create datasets and tables for storing structured healthcare data for analytics.
+This project demonstrates practical experience building batch and streaming data pipelines on Google Cloud using Python, Apache Beam, Pub/Sub, Dataflow, Cloud Storage, and BigQuery.
 
-### 4. Pub/Sub
-
-Used to publish healthcare records/messages as part of the streaming workflow.
-
-### 5. Dataflow
-
-A Dataflow pipeline using Apache Beam was developed and tested to process messages from Pub/Sub.
-
-### 6. Python
-
-Python was used to parse the healthcare JSON data and publish records to Pub/Sub.
-
-## Batch vs Streaming
-
-### Batch
-
-Raw healthcare JSON data was staged in Cloud Storage and loaded into BigQuery.
-
-### Streaming
-
-A Python producer published healthcare records to Pub/Sub, which were processed through a Dataflow / Apache Beam streaming pipeline.
-
-## Learning Outcomes
-
-Through this project, I practiced:
-
-- GCP data pipeline design
-- Batch data ingestion
-- Streaming data processing
-- Pub/Sub messaging
-- Dataflow and Apache Beam
-- BigQuery data storage
-- Cloud Storage
-- Python-based data ingestion
-- Working with FHIR/JSON healthcare data
