@@ -47,28 +47,30 @@ Synthea FHIR/JSON
 
 
 ### 3.Technologies Used
-Google Cloud Platform (GCP)
-Cloud Storage
-BigQuery
-Pub/Sub
-Dataflow
-Apache Beam
-Python
-SQL
-FHIR / JSON
-Synthea synthetic healthcare dataset
+
+- Google Cloud Platform (GCP)
+- Cloud Storage
+- BigQuery
+- Pub/Sub
+- Dataflow
+- Apache Beam
+- Python
+- SQL
+- FHIR / JSON
+- Synthea synthetic healthcare dataset
 
 
 
 ### 4.Key Data Engineering Concepts
-Batch data ingestion
-Streaming data processing
-Event-driven data ingestion using Pub/Sub
-FHIR/JSON parsing
-Data transformation using Apache Beam
-Cloud Storage integration
-BigQuery data loading
-Pipeline development using Python
+
+- Batch data ingestion
+- Streaming data processing
+- Event-driven data ingestion using Pub/Sub
+- FHIR/JSON parsing
+- Data transformation using Apache Beam
+- Cloud Storage integration
+- BigQuery data loading
+- Pipeline development using Python
 
 
 ### 5.Project Structure
